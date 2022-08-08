@@ -9,6 +9,11 @@ local padding = {
 	bottom = "0.5cell",
 }
 
+-- Reload the configuration every ten minutes
+wezterm.time.call_after(600, function()
+  wezterm.reload_configuration()
+end)
+
 -- A helper function for my fallback fonts
 local function font_with_fallback(name, params)
 	local names = { name, "mini-file-icons", "Hack Nerd Font", "SauceCodePro Nerd Font" }
