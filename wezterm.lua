@@ -11,7 +11,7 @@ local padding = {
 
 -- Reload the configuration every ten minutes
 wezterm.time.call_after(600, function()
-  wezterm.reload_configuration()
+	wezterm.reload_configuration()
 end)
 
 -- A helper function for my fallback fonts
@@ -21,19 +21,21 @@ local function font_with_fallback(name, params)
 end
 
 local function get_theme()
-  local _time = os.date "*t"
-  if _time.hour >= 1 and _time.hour < 9 then
-    return "Rosé Pine (base16)"
-  elseif _time.hour >= 9 and _time.hour < 17 then
-    return "tokyonight_night"
-  elseif _time.hour >= 17 and _time.hour < 21 then
-    return "Catppuccin Mocha"
-  elseif _time.hour >= 21 and _time.hour < 24 or _time.hour >= 0 and _time.hour < 1 then
-    return "kanagawabones"
-  end
+	local _time = os.date("*t")
+	if _time.hour >= 1 and _time.hour < 9 then
+		return "Rosé Pine (base16)"
+	elseif _time.hour >= 9 and _time.hour < 17 then
+		return "tokyonight_night"
+	elseif _time.hour >= 17 and _time.hour < 21 then
+		return "Catppuccin Mocha"
+	elseif _time.hour >= 21 and _time.hour < 24 or _time.hour >= 0 and _time.hour < 1 then
+		return "kanagawabones"
+	end
 end
 
 return {
+	bidi_enabled = true,
+	bidi_direction = "AutoLeftToRight",
 	color_scheme = get_theme(),
 	font = font_with_fallback({
 		family = "FiraCode Nerd Font",
@@ -108,12 +110,12 @@ return {
 	window_decorations = "RESIZE",
 	hide_tab_bar_if_only_one_tab = true,
 	selection_word_boundary = " \t\n{}[]()\"'`,;:@",
-  -- disable_default_key_bindings = true,
+	-- disable_default_key_bindings = true,
 	line_height = 1.25,
 	font_size = 13,
 	window_background_opacity = 0.95,
 	bold_brightens_ansi_colors = false,
 	-- swap_backspace_and_delete = false,
-	term = "wezterm",
+	-- term = "wezterm",
 	-- freetype_load_target = "Light",
 }
