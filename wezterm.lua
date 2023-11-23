@@ -4,9 +4,9 @@ local wezterm = require("wezterm")
 -- local default_shell = "/bin/zsh"
 local padding = {
 	left = "1cell",
-	right = "1cell",
-	top = "0.5cell",
-	bottom = "0.5cell",
+	right = "0",
+	top = "0",
+	bottom = "0",
 }
 
 -- Reload the configuration every ten minutes
@@ -35,7 +35,7 @@ end
 
 return {
 	bidi_enabled = true,
-	bidi_direction = "AutoLeftToRight",
+	bidi_direction = "LeftToRight",
 	color_scheme = get_theme(),
 	font = font_with_fallback({
 		family = "FiraCode Nerd Font",
@@ -58,7 +58,7 @@ return {
 			italic = true,
 			intensity = "Bold",
 			font = font_with_fallback({
-				family = "Iosevka Nerd Font",
+				family = "Iosevka NF",
 				-- family = "Dank Mono",
 				weight = "Medium",
 				italic = true,
@@ -68,7 +68,7 @@ return {
 			italic = true,
 			font = font_with_fallback({
 				-- family = "Dank Mono",
-				family = "Iosevka Nerd Font",
+				family = "Iosevka NF",
 				weight = "Regular",
 				italic = true,
 			}),
@@ -116,6 +116,10 @@ return {
 	window_background_opacity = 0.95,
 	bold_brightens_ansi_colors = false,
 	-- swap_backspace_and_delete = false,
+  use_fancy_tab_bar=true,
+  tab_bar_at_bottom=true,
+  show_tab_index_in_tab_bar=false,
+  scrollback_lines=30000,
 	-- term = "wezterm",
 	-- freetype_load_target = "Light",
 }
